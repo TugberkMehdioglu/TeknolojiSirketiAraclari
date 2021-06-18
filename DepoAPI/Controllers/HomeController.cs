@@ -20,24 +20,42 @@ namespace DepoAPI.Controllers
         }
 
         [HttpPost]
-        public IHttpActionResult StockControl(StockDTO item)
+        public IHttpActionResult AddStocks(List<StockDTO> item)
         {
-            if(item.ID > 0 && item.ProductName != null && item.UnitInStock > 0 && item.UnitPrice > 0)
+            foreach (StockDTO element in item)
             {
-                Storage product = new Storage
-                {
-                    ID = item.ID,
-                    ProductName = item.ProductName,
-                    UnitInStock = item.UnitInStock,
-                    UnitPrice = item.UnitPrice
-                };
-
-                _db.Storages.Add(product);
-                _db.SaveChanges();
-
-                return Ok();
+                if (element.ID <= 0 || element.ProductName == null || element.UnitPrice <= 0 || element.UnitInStock <= 0)
+                    return BadRequest("Mandatory fields cannot be null");
             }
-            return BadRequest("Mandatory fields cannot be null");
+
+            _db.Storages.AddRange(item.Select(x => new Storage
+            {
+                ID = x.ID,
+                ProductName = x.ProductName,
+                UnitPrice = x.UnitPrice,
+                UnitInStock = x.UnitInStock
+            }).ToList());
+
+            _db.SaveChanges();
+            return Ok();
+
+            
+            //if(item.ID > 0 && item.ProductName != null && item.UnitInStock > 0 && item.UnitPrice > 0)
+            //{
+            //    Storage product = new Storage
+            //    {
+            //        ID = item.ID,
+            //        ProductName = item.ProductName,
+            //        UnitInStock = item.UnitInStock,
+            //        UnitPrice = item.UnitPrice
+            //    };
+
+            //    _db.Storages.Add(product);
+            //    _db.SaveChanges();
+
+            //    return Ok();
+            //}
+            //return BadRequest("Mandatory fields cannot be null");
         }
     }
 }
