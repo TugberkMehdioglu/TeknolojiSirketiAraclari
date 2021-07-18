@@ -57,5 +57,22 @@ namespace DepoAPI.Controllers
             //}
             //return BadRequest("Mandatory fields cannot be null");
         }
+
+        public IHttpActionResult StockDrop(List<StockDropDTO> item)
+        {
+            foreach (StockDropDTO element in item)
+            {
+                if (element.ID <= 0 || element.Quantity <= 0)
+                    return BadRequest("Mandatory fields cannot be null");
+            }
+
+            foreach (StockDropDTO element in item)
+            {
+                Storage toBeUpdated = _db.Storages.Find(element.ID);
+                toBeUpdated.UnitInStock -= element.Quantity;
+            }
+            _db.SaveChanges();
+            return Ok();
+        }
     }
 }
