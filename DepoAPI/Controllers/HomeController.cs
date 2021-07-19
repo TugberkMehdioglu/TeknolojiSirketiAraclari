@@ -2,6 +2,7 @@
 using DepoAPI.DTOClasses;
 using DepoAPI.Models.Context;
 using DepoAPI.Models.Entities;
+using DepoAPI.Tools;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -69,7 +70,15 @@ namespace DepoAPI.Controllers
             foreach (StockDropDTO element in item)
             {
                 Storage toBeUpdated = _db.Storages.Find(element.ID);
+                if (toBeUpdated.UnitInStock <= 0) return BadRequest("No stock"); //Satın alınacak ürünün stoğu yoksa, engellenir
                 toBeUpdated.UnitInStock -= element.Quantity;
+                if (toBeUpdated.UnitInStock < 0) return BadRequest("Insufficient stock"); //Satın alınacak miktarda stok yoksa, engellenir
+                else if (toBeUpdated.UnitInStock <= 5)
+                {
+                    //Burada receiver'a depo sorumlusunun mail'i girilmelidir
+                    //Stoklar azalınca sorumluya mail atılır
+                    MailService.Send(subject: "Depo'dan mesaj var!", body: $"{toBeUpdated.ProductName} ürününün stoğu azalmıştır, lütfen stokları güncelleyiniz", receiver: "tugberkmehdioglu@yandex.com");
+                }
             }
             _db.SaveChanges();
             return Ok();
