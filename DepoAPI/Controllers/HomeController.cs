@@ -25,13 +25,12 @@ namespace DepoAPI.Controllers
         {
             foreach (StockDTO element in item)
             {
-                if (element.ID <= 0 || element.ProductName == null || element.UnitPrice <= 0 || element.UnitInStock <= 0)
+                if (element.ProductName == null || element.UnitPrice <= 0 || element.UnitInStock <= 0)
                     return BadRequest("Mandatory fields cannot be null");
             }
 
             _db.Storages.AddRange(item.Select(x => new Storage
             {
-                ID = x.ID,
                 ProductName = x.ProductName,
                 UnitPrice = x.UnitPrice,
                 UnitInStock = x.UnitInStock
@@ -39,24 +38,32 @@ namespace DepoAPI.Controllers
 
             _db.SaveChanges();
             return Ok();
+        }
 
-            
-            //if(item.ID > 0 && item.ProductName != null && item.UnitInStock > 0 && item.UnitPrice > 0)
-            //{
-            //    Storage product = new Storage
-            //    {
-            //        ID = item.ID,
-            //        ProductName = item.ProductName,
-            //        UnitInStock = item.UnitInStock,
-            //        UnitPrice = item.UnitPrice
-            //    };
+        [HttpPut]
+        public IHttpActionResult UpdateStock(StockDTO item)
+        {
+            if (item.ID > 0 && item.UnitInStock > 0 && item.UnitPrice > 0 && item.ProductName != null)
+            {
+                Storage toBeUpdated = _db.Storages.Find(item.ID);
+                _db.Entry(toBeUpdated).CurrentValues.SetValues(item);
+                _db.SaveChanges();
+                return Ok();
+            }
+            else return BadRequest("Mandatory fields cannot be null");
+        }
 
-            //    _db.Storages.Add(product);
-            //    _db.SaveChanges();
-
-            //    return Ok();
-            //}
-            //return BadRequest("Mandatory fields cannot be null");
+        [HttpPut]
+        public IHttpActionResult DeleteStock(StockDTO item)
+        {
+            if (item.ID > 0)
+            {
+                Storage element = _db.Storages.Find(item.ID);
+                _db.Storages.Remove(element);
+                _db.SaveChanges();
+                return Ok();
+            }
+            else return BadRequest("Mandatory field cannot be null");
         }
 
         public IHttpActionResult StockDrop(List<StockDropDTO> item)
