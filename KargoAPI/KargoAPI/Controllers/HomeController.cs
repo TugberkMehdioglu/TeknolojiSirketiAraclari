@@ -2,6 +2,7 @@
 using KargoAPI.DTOClasses;
 using KargoAPI.Models.Context;
 using KargoAPI.Models.Entities;
+using KargoAPI.Tools;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,6 +40,9 @@ namespace KargoAPI.Controllers
                 };
                 _db.Shippers.Add(s);
                 _db.SaveChanges();
+
+                MailService.Send(receiver: item.Email, subject: "Kargo", body: $"Kargonuzu {s.ID} takip numarası ile TeknoCenter sitesindeki kargo takip bölümünden izleyebilirsiniz");
+
                 return Ok(); //Gelen veri istediğimiz koşuldaysa CargoDTO tipindeki veriyi Shipper tipine çevirip, DB'ye kaydedip başarılı durum kodu yolluyoruz request'e
             }
             else return BadRequest("Mandatory fields cannot be null");
