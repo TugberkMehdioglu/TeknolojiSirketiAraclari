@@ -83,6 +83,7 @@ namespace KargoAPI.Controllers
                     if (item.Status == "Teslim edildi")
                     {
                         s.DeliveryDate = DateTime.Now;
+                        MailService.Send(receiver: s.Email, subject: "Kargo", body: $"{s.ID} takip numaralı kargonuz teslim edilmiştir");
                     }
 
                     _db.SaveChanges();

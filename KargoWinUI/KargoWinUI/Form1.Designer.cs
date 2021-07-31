@@ -38,7 +38,7 @@ namespace KargoWinUI
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(56, 65);
+            this.txtID.Location = new System.Drawing.Point(58, 95);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(145, 20);
             this.txtID.TabIndex = 0;
@@ -47,7 +47,7 @@ namespace KargoWinUI
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(53, 46);
+            this.label1.Location = new System.Drawing.Point(55, 76);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(76, 16);
             this.label1.TabIndex = 1;
@@ -57,7 +57,7 @@ namespace KargoWinUI
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(56, 133);
+            this.label2.Location = new System.Drawing.Point(55, 163);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(103, 16);
             this.label2.TabIndex = 1;
@@ -65,7 +65,7 @@ namespace KargoWinUI
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(90, 206);
+            this.btnUpdate.Location = new System.Drawing.Point(89, 236);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(78, 47);
             this.btnUpdate.TabIndex = 2;
@@ -81,7 +81,7 @@ namespace KargoWinUI
             "Teslim şubesinde",
             "Dağıtıma çıktı",
             "Teslim edildi"});
-            this.cmbStatus.Location = new System.Drawing.Point(59, 152);
+            this.cmbStatus.Location = new System.Drawing.Point(58, 182);
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(142, 21);
             this.cmbStatus.TabIndex = 3;
