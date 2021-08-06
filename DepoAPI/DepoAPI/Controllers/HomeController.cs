@@ -90,5 +90,16 @@ namespace DepoAPI.Controllers
             _db.SaveChanges();
             return Ok();
         }
+
+        public List<StockDTO> GetStock()
+        {
+            return _db.Storages.Select(x => new StockDTO
+            {
+                ID = x.ID,
+                ProductName = x.ProductName,
+                UnitPrice = x.UnitPrice,
+                UnitInStock = x.UnitInStock
+            }).ToList();
+        }
     }
 }
