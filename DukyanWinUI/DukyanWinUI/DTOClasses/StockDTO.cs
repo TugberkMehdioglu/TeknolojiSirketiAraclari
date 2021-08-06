@@ -15,7 +15,7 @@ namespace DukyanWinUI.DTOClasses
 
         public override string ToString()
         {
-            return $"ID: {ID}\t  Ürün adı: {ProductName}\t Birim Fiyat: {UnitPrice}\t Stok: {UnitInStock}";
+            return $"ID: {ID}\t  Birim Fiyat: {UnitPrice}\t  Stok: {UnitInStock}\t  Ürün adı: {ProductName}";
         }
     }
 }

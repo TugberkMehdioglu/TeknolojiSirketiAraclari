@@ -11,3 +11,16 @@ C:\Users\tugbe\Desktop\DukyanWinUI\DukyanWinUI\obj\Debug\DukyanWinUI.pdb
 C:\Users\tugbe\Desktop\DukyanWinUI\DukyanWinUI\bin\Debug\Newtonsoft.Json.dll
 C:\Users\tugbe\Desktop\DukyanWinUI\DukyanWinUI\bin\Debug\Newtonsoft.Json.xml
 C:\Users\tugbe\Desktop\DukyanWinUI\DukyanWinUI\obj\Debug\DukyanWinUI.csproj.CopyComplete
+C:\Users\tugbe\Desktop\GitRepo\TeknolojiSirketiAraclari\DukyanWinUI\DukyanWinUI\bin\Debug\DukyanWinUI.exe.config
+C:\Users\tugbe\Desktop\GitRepo\TeknolojiSirketiAraclari\DukyanWinUI\DukyanWinUI\bin\Debug\DukyanWinUI.exe
+C:\Users\tugbe\Desktop\GitRepo\TeknolojiSirketiAraclari\DukyanWinUI\DukyanWinUI\bin\Debug\DukyanWinUI.pdb
+C:\Users\tugbe\Desktop\GitRepo\TeknolojiSirketiAraclari\DukyanWinUI\DukyanWinUI\bin\Debug\Newtonsoft.Json.dll
+C:\Users\tugbe\Desktop\GitRepo\TeknolojiSirketiAraclari\DukyanWinUI\DukyanWinUI\bin\Debug\Newtonsoft.Json.xml
+C:\Users\tugbe\Desktop\GitRepo\TeknolojiSirketiAraclari\DukyanWinUI\DukyanWinUI\obj\Debug\DukyanWinUI.csprojAssemblyReference.cache
+C:\Users\tugbe\Desktop\GitRepo\TeknolojiSirketiAraclari\DukyanWinUI\DukyanWinUI\obj\Debug\DukyanWinUI.Form1.resources
+C:\Users\tugbe\Desktop\GitRepo\TeknolojiSirketiAraclari\DukyanWinUI\DukyanWinUI\obj\Debug\DukyanWinUI.Properties.Resources.resources
+C:\Users\tugbe\Desktop\GitRepo\TeknolojiSirketiAraclari\DukyanWinUI\DukyanWinUI\obj\Debug\DukyanWinUI.csproj.GenerateResource.cache
+C:\Users\tugbe\Desktop\GitRepo\TeknolojiSirketiAraclari\DukyanWinUI\DukyanWinUI\obj\Debug\DukyanWinUI.csproj.CoreCompileInputs.cache
+C:\Users\tugbe\Desktop\GitRepo\TeknolojiSirketiAraclari\DukyanWinUI\DukyanWinUI\obj\Debug\DukyanWinUI.csproj.CopyComplete
+C:\Users\tugbe\Desktop\GitRepo\TeknolojiSirketiAraclari\DukyanWinUI\DukyanWinUI\obj\Debug\DukyanWinUI.exe
+C:\Users\tugbe\Desktop\GitRepo\TeknolojiSirketiAraclari\DukyanWinUI\DukyanWinUI\obj\Debug\DukyanWinUI.pdb
