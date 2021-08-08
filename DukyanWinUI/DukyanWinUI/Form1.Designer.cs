@@ -29,29 +29,33 @@ namespace DukyanWinUI
         /// </summary>
         private void InitializeComponent()
         {
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.lstView = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.txtID = new System.Windows.Forms.TextBox();
+            this.txtAmount = new System.Windows.Forms.TextBox();
+            this.btnOrder = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // listView1
+            // lstView
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lstView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4});
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(12, 12);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(907, 663);
-            this.listView1.TabIndex = 1;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.lstView.HideSelection = false;
+            this.lstView.Location = new System.Drawing.Point(12, 12);
+            this.lstView.Name = "lstView";
+            this.lstView.Size = new System.Drawing.Size(907, 663);
+            this.lstView.TabIndex = 1;
+            this.lstView.UseCompatibleStateImageBehavior = false;
+            this.lstView.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader1
             // 
@@ -95,14 +99,56 @@ namespace DukyanWinUI
             this.label2.Size = new System.Drawing.Size(0, 18);
             this.label2.TabIndex = 3;
             // 
+            // txtID
+            // 
+            this.txtID.Location = new System.Drawing.Point(968, 333);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(117, 20);
+            this.txtID.TabIndex = 4;
+            this.txtID.Text = "Satın alınacak ürün ID";
+            this.txtID.Click += new System.EventHandler(this.txtID_Click);
+            // 
+            // txtAmount
+            // 
+            this.txtAmount.Location = new System.Drawing.Point(1113, 333);
+            this.txtAmount.Name = "txtAmount";
+            this.txtAmount.Size = new System.Drawing.Size(119, 20);
+            this.txtAmount.TabIndex = 5;
+            this.txtAmount.Text = "Miktar";
+            this.txtAmount.Click += new System.EventHandler(this.txtAmount_Click);
+            // 
+            // btnOrder
+            // 
+            this.btnOrder.Location = new System.Drawing.Point(1047, 383);
+            this.btnOrder.Name = "btnOrder";
+            this.btnOrder.Size = new System.Drawing.Size(107, 42);
+            this.btnOrder.TabIndex = 6;
+            this.btnOrder.Text = "Siparişi Tamamla";
+            this.btnOrder.UseVisualStyleBackColor = true;
+            this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(1032, 209);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(131, 64);
+            this.btnUpdate.TabIndex = 7;
+            this.btnUpdate.Text = "Listeyi Güncelle";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1479, 687);
+            this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.btnOrder);
+            this.Controls.Add(this.txtAmount);
+            this.Controls.Add(this.txtID);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.lstView);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -112,13 +158,17 @@ namespace DukyanWinUI
         }
 
         #endregion
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView lstView;
         public System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.TextBox txtAmount;
+        private System.Windows.Forms.Button btnOrder;
+        private System.Windows.Forms.Button btnUpdate;
     }
 }
 

@@ -53,10 +53,10 @@ namespace DukyanWinUI
                     {
                         lstViewItems = new string[] { element.ID.ToString(), element.UnitPrice.ToString(), element.UnitInStock.ToString(), element.ProductName };
                         ListViewItem item = new ListViewItem(lstViewItems);
-                        listView1.Items.Add(item);
+                        lstView.Items.Add(item);
                     }
 
-                    label2.Text = listView1.Items.Count.ToString();
+                    label2.Text = lstView.Items.Count.ToString();
 
                     
                 }
@@ -82,6 +82,70 @@ namespace DukyanWinUI
 
             //    lstBox.Items.AddRange(resultcontent);
             //}
+        }
+
+        private void txtID_Click(object sender, EventArgs e)
+        {
+            txtID.Clear();
+        }
+
+        private void txtAmount_Click(object sender, EventArgs e)
+        {
+            txtAmount.Clear();
+        }
+
+        private void btnOrder_Click(object sender, EventArgs e)
+        {
+            if ((!string.IsNullOrEmpty(txtID.Text) && !string.IsNullOrEmpty(txtAmount.Text)) && (!(txtID.Text == "Satın alınacak ürün ID") && !(txtAmount.Text== "Miktar")))
+            {
+                int id;
+                short amount;
+
+                try
+                {
+                    id = Convert.ToInt32(txtID.Text);
+                    amount = Convert.ToInt16(txtAmount.Text);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Lütfen ID ve Miktar kısımlarında geçerli format kullanınız");
+                    return;
+                }
+
+                //DepoAPI'daki StockDrop action'ı List<StockDropDTO> tipinde argüman istiyor.
+                List<StockDropDTO> list = new List<StockDropDTO>() { new StockDropDTO { ID=id, Quantity=amount} };
+
+                using (HttpClient client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri("https://localhost:44339/api/");
+                    Task<HttpResponseMessage> postTask = client.PostAsJsonAsync("Home/StockDrop", list);
+
+                    HttpResponseMessage result;
+
+                    try
+                    {
+                        result = postTask.Result;
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("DepoAPI bağlantıyı reddetti");
+                        return;
+                    }
+
+                    if (result.IsSuccessStatusCode)
+                    {
+                        MessageBox.Show("Sipariş tamamlandı");
+                    }
+                    else MessageBox.Show("DepoAPI ile ilgili bir sorun oluştu");
+                }
+            }
+            else MessageBox.Show("Lütfen gerekli alanları boş bırakmayınız");
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            lstView.Items.Clear();
+            Form1_Load(sender, e);
         }
     }
 }
