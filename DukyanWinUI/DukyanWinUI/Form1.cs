@@ -52,13 +52,13 @@ namespace DukyanWinUI
                     foreach (StockDTO element in resultContent)
                     {
                         lstViewItems = new string[] { element.ID.ToString(), element.UnitPrice.ToString(), element.UnitInStock.ToString(), element.ProductName };
-                        ListViewItem item = new ListViewItem(lstViewItems);
-                        lstView.Items.Add(item);
+                        ListViewItem listItem = new ListViewItem(lstViewItems);
+                        lstView.Items.Add(listItem);
                     }
 
                     label2.Text = lstView.Items.Count.ToString();
 
-                    
+
                 }
                 else
                 {
@@ -96,29 +96,12 @@ namespace DukyanWinUI
 
         private void btnOrder_Click(object sender, EventArgs e)
         {
-            if ((!string.IsNullOrEmpty(txtID.Text) && !string.IsNullOrEmpty(txtAmount.Text)) && (!(txtID.Text == "Satın alınacak ürün ID") && !(txtAmount.Text== "Miktar")))
+            if (listStock.Count > 0)
             {
-                int id;
-                short amount;
-
-                try
-                {
-                    id = Convert.ToInt32(txtID.Text);
-                    amount = Convert.ToInt16(txtAmount.Text);
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Lütfen ID ve Miktar kısımlarında geçerli format kullanınız");
-                    return;
-                }
-
-                //DepoAPI'daki StockDrop action'ı List<StockDropDTO> tipinde argüman istiyor.
-                List<StockDropDTO> list = new List<StockDropDTO>() { new StockDropDTO { ID=id, Quantity=amount} };
-
                 using (HttpClient client = new HttpClient())
                 {
                     client.BaseAddress = new Uri("https://localhost:44339/api/");
-                    Task<HttpResponseMessage> postTask = client.PostAsJsonAsync("Home/StockDrop", list);
+                    Task<HttpResponseMessage> postTask = client.PostAsJsonAsync("Home/StockDrop", listStock);
 
                     HttpResponseMessage result;
 
@@ -134,18 +117,50 @@ namespace DukyanWinUI
 
                     if (result.IsSuccessStatusCode)
                     {
+                        listStock.Clear();//List içindeki ürünler temizlendi
+                        lstBox.Items.Clear();//ListBox'taki gösterge temizlendi
                         MessageBox.Show("Sipariş tamamlandı");
                     }
                     else MessageBox.Show("DepoAPI ile ilgili bir sorun oluştu");
                 }
             }
-            else MessageBox.Show("Lütfen gerekli alanları boş bırakmayınız");
+            else MessageBox.Show("Lütfen sipariş edilecek ürünleri ekleyiniz");
+
+
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             lstView.Items.Clear();
             Form1_Load(sender, e);
+        }
+
+        //DepoAPI'daki StockDrop action'ı List<StockDropDTO> tipinde argüman istiyor.
+        List<StockDropDTO> listStock = new List<StockDropDTO>();
+
+        private void btnAddOrder_Click(object sender, EventArgs e)
+        {
+            if ((!string.IsNullOrEmpty(txtID.Text) && !string.IsNullOrEmpty(txtAmount.Text)) && (!(txtID.Text == "Satın alınacak ürün ID") && !(txtAmount.Text == "Miktar")))
+            {
+                int id;
+                short amount;
+
+                try
+                {
+                    id = Convert.ToInt32(txtID.Text);
+                    amount = Convert.ToInt16(txtAmount.Text);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Lütfen ID ve Miktar kısımlarında geçerli format kullanınız");
+                    return;
+                }
+
+                listStock.Add(new StockDropDTO { ID = id, Quantity = amount });
+
+                lstBox.Items.Add($"{id} ID'li üründen {amount} adet.");
+            }
+            else MessageBox.Show("Lütfen gerekli alanları boş bırakmayınız");
         }
     }
 }
