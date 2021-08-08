@@ -152,7 +152,7 @@ namespace DukyanWinUI
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Lütfen ID ve Miktar kısımlarında geçerli format kullanınız");
+                    MessageBox.Show("Lütfen ID ve Miktar kısımlarına sadece sayı giriniz");
                     return;
                 }
 
