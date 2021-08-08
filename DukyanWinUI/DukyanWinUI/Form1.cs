@@ -132,7 +132,7 @@ namespace DukyanWinUI
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             lstView.Items.Clear();
-            Form1_Load(sender, e);
+            Form1_Load(sender, e);            
         }
 
         //DepoAPI'daki StockDrop action'ı List<StockDropDTO> tipinde argüman istiyor.
@@ -158,9 +158,22 @@ namespace DukyanWinUI
 
                 listStock.Add(new StockDropDTO { ID = id, Quantity = amount });
 
-                lstBox.Items.Add($"{id} ID'li üründen {amount} adet.");
+                lstBox.Items.Add(listStock.LastOrDefault());
+
+                //lstBox.Items.Add($"{id} ID'li üründen {amount} adet.");
             }
             else MessageBox.Show("Lütfen gerekli alanları boş bırakmayınız");
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (lstBox.SelectedIndex > -1)
+            {
+                StockDropDTO toBeDeleted = (lstBox.SelectedItem as StockDropDTO);
+                listStock.Remove(toBeDeleted);
+                lstBox.Items.Remove(lstBox.SelectedItem);
+            }
+            else MessageBox.Show("Sipariş Listesinden silmek istediğiniz ürünü seçin");
         }
     }
 }

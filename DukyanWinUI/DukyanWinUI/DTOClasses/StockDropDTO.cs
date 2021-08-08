@@ -10,5 +10,10 @@ namespace DukyanWinUI.DTOClasses
     {
         public int ID { get; set; }
         public short Quantity { get; set; }
+
+        public override string ToString()
+        {
+            return $"{ID} ID'li üründen {Quantity} adet.";
+        }
     }
 }
