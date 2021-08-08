@@ -45,7 +45,20 @@ namespace DukyanWinUI
 
                     StockDTO[] resultContent = JsonConvert.DeserializeObject<StockDTO[]>(contentString);
 
-                    lstBox.Items.AddRange(resultContent);
+
+                    string[] lstViewItems = new string[resultContent.Length];
+
+
+                    foreach (StockDTO element in resultContent)
+                    {
+                        lstViewItems = new string[] { element.ID.ToString(), element.UnitPrice.ToString(), element.UnitInStock.ToString(), element.ProductName };
+                        ListViewItem item = new ListViewItem(lstViewItems);
+                        listView1.Items.Add(item);
+                    }
+
+                    label2.Text = listView1.Items.Count.ToString();
+
+                    
                 }
                 else
                 {
