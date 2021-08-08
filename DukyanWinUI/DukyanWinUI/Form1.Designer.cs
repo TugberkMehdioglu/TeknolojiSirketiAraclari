@@ -44,6 +44,15 @@ namespace DukyanWinUI
             this.btnAddOrder = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.txtFullName = new System.Windows.Forms.TextBox();
+            this.txtPhone = new System.Windows.Forms.TextBox();
+            this.txtCountry = new System.Windows.Forms.TextBox();
+            this.txtCity = new System.Windows.Forms.TextBox();
+            this.txtNeighborhood = new System.Windows.Forms.TextBox();
+            this.txtStreet = new System.Windows.Forms.TextBox();
+            this.txtAptNo = new System.Windows.Forms.TextBox();
+            this.txtFlat = new System.Windows.Forms.TextBox();
+            this.txtDistrcit = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lstView
@@ -105,7 +114,7 @@ namespace DukyanWinUI
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(927, 238);
+            this.txtID.Location = new System.Drawing.Point(927, 216);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(117, 20);
             this.txtID.TabIndex = 4;
@@ -114,7 +123,7 @@ namespace DukyanWinUI
             // 
             // txtAmount
             // 
-            this.txtAmount.Location = new System.Drawing.Point(927, 264);
+            this.txtAmount.Location = new System.Drawing.Point(927, 242);
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.Size = new System.Drawing.Size(117, 20);
             this.txtAmount.TabIndex = 5;
@@ -123,7 +132,7 @@ namespace DukyanWinUI
             // 
             // btnOrder
             // 
-            this.btnOrder.Location = new System.Drawing.Point(927, 365);
+            this.btnOrder.Location = new System.Drawing.Point(927, 615);
             this.btnOrder.Name = "btnOrder";
             this.btnOrder.Size = new System.Drawing.Size(331, 42);
             this.btnOrder.TabIndex = 6;
@@ -144,14 +153,14 @@ namespace DukyanWinUI
             // lstBox
             // 
             this.lstBox.FormattingEnabled = true;
-            this.lstBox.Location = new System.Drawing.Point(1048, 238);
+            this.lstBox.Location = new System.Drawing.Point(1048, 216);
             this.lstBox.Name = "lstBox";
             this.lstBox.Size = new System.Drawing.Size(154, 121);
             this.lstBox.TabIndex = 8;
             // 
             // btnAddOrder
             // 
-            this.btnAddOrder.Location = new System.Drawing.Point(927, 290);
+            this.btnAddOrder.Location = new System.Drawing.Point(927, 268);
             this.btnAddOrder.Name = "btnAddOrder";
             this.btnAddOrder.Size = new System.Drawing.Size(117, 69);
             this.btnAddOrder.TabIndex = 9;
@@ -162,7 +171,7 @@ namespace DukyanWinUI
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(1045, 212);
+            this.label3.Location = new System.Drawing.Point(1045, 190);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(157, 23);
             this.label3.TabIndex = 10;
@@ -171,7 +180,7 @@ namespace DukyanWinUI
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(1208, 238);
+            this.btnDelete.Location = new System.Drawing.Point(1208, 216);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(50, 121);
             this.btnDelete.TabIndex = 11;
@@ -179,11 +188,101 @@ namespace DukyanWinUI
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // txtFullName
+            // 
+            this.txtFullName.Location = new System.Drawing.Point(998, 373);
+            this.txtFullName.Name = "txtFullName";
+            this.txtFullName.Size = new System.Drawing.Size(204, 20);
+            this.txtFullName.TabIndex = 12;
+            this.txtFullName.Text = "İsim Soyisim";
+            this.txtFullName.Click += new System.EventHandler(this.txtFullName_Click);
+            // 
+            // txtPhone
+            // 
+            this.txtPhone.Location = new System.Drawing.Point(998, 399);
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(204, 20);
+            this.txtPhone.TabIndex = 12;
+            this.txtPhone.Text = "TelNo";
+            this.txtPhone.Click += new System.EventHandler(this.txtPhone_Click);
+            // 
+            // txtCountry
+            // 
+            this.txtCountry.Location = new System.Drawing.Point(998, 425);
+            this.txtCountry.Name = "txtCountry";
+            this.txtCountry.Size = new System.Drawing.Size(204, 20);
+            this.txtCountry.TabIndex = 12;
+            this.txtCountry.Text = "Ülke";
+            this.txtCountry.Click += new System.EventHandler(this.txtCountry_Click);
+            // 
+            // txtCity
+            // 
+            this.txtCity.Location = new System.Drawing.Point(998, 451);
+            this.txtCity.Name = "txtCity";
+            this.txtCity.Size = new System.Drawing.Size(204, 20);
+            this.txtCity.TabIndex = 12;
+            this.txtCity.Text = "Şehir";
+            this.txtCity.Click += new System.EventHandler(this.txtCity_Click);
+            // 
+            // txtNeighborhood
+            // 
+            this.txtNeighborhood.Location = new System.Drawing.Point(998, 503);
+            this.txtNeighborhood.Name = "txtNeighborhood";
+            this.txtNeighborhood.Size = new System.Drawing.Size(204, 20);
+            this.txtNeighborhood.TabIndex = 12;
+            this.txtNeighborhood.Text = "Mahalle";
+            this.txtNeighborhood.Click += new System.EventHandler(this.txtNeighborhood_Click);
+            // 
+            // txtStreet
+            // 
+            this.txtStreet.Location = new System.Drawing.Point(998, 529);
+            this.txtStreet.Name = "txtStreet";
+            this.txtStreet.Size = new System.Drawing.Size(204, 20);
+            this.txtStreet.TabIndex = 12;
+            this.txtStreet.Text = "Sokak";
+            this.txtStreet.Click += new System.EventHandler(this.txtStreet_Click);
+            // 
+            // txtAptNo
+            // 
+            this.txtAptNo.Location = new System.Drawing.Point(998, 555);
+            this.txtAptNo.Name = "txtAptNo";
+            this.txtAptNo.Size = new System.Drawing.Size(204, 20);
+            this.txtAptNo.TabIndex = 12;
+            this.txtAptNo.Text = "AptNo";
+            this.txtAptNo.Click += new System.EventHandler(this.txtAptNo_Click);
+            // 
+            // txtFlat
+            // 
+            this.txtFlat.Location = new System.Drawing.Point(998, 581);
+            this.txtFlat.Name = "txtFlat";
+            this.txtFlat.Size = new System.Drawing.Size(204, 20);
+            this.txtFlat.TabIndex = 12;
+            this.txtFlat.Text = "KapıNo (Var ise)";
+            this.txtFlat.Click += new System.EventHandler(this.txtFlat_Click);
+            // 
+            // txtDistrcit
+            // 
+            this.txtDistrcit.Location = new System.Drawing.Point(998, 477);
+            this.txtDistrcit.Name = "txtDistrcit";
+            this.txtDistrcit.Size = new System.Drawing.Size(204, 20);
+            this.txtDistrcit.TabIndex = 12;
+            this.txtDistrcit.Text = "İlçe";
+            this.txtDistrcit.Click += new System.EventHandler(this.txtDistrcit_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1479, 687);
+            this.ClientSize = new System.Drawing.Size(1275, 687);
+            this.Controls.Add(this.txtFlat);
+            this.Controls.Add(this.txtAptNo);
+            this.Controls.Add(this.txtStreet);
+            this.Controls.Add(this.txtNeighborhood);
+            this.Controls.Add(this.txtCity);
+            this.Controls.Add(this.txtDistrcit);
+            this.Controls.Add(this.txtCountry);
+            this.Controls.Add(this.txtPhone);
+            this.Controls.Add(this.txtFullName);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnAddOrder);
@@ -219,6 +318,15 @@ namespace DukyanWinUI
         private System.Windows.Forms.Button btnAddOrder;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.TextBox txtFullName;
+        private System.Windows.Forms.TextBox txtPhone;
+        private System.Windows.Forms.TextBox txtCountry;
+        private System.Windows.Forms.TextBox txtCity;
+        private System.Windows.Forms.TextBox txtNeighborhood;
+        private System.Windows.Forms.TextBox txtStreet;
+        private System.Windows.Forms.TextBox txtAptNo;
+        private System.Windows.Forms.TextBox txtFlat;
+        private System.Windows.Forms.TextBox txtDistrcit;
     }
 }
 

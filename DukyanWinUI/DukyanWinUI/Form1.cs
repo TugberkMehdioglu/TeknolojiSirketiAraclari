@@ -1,4 +1,7 @@
-﻿using DukyanWinUI.DTOClasses;
+﻿using DukyanWinUI.DesignPatterns.SingletonPattern;
+using DukyanWinUI.DTOClasses;
+using DukyanWinUI.Models.Context;
+using DukyanWinUI.Models.Entities;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -15,9 +18,11 @@ namespace DukyanWinUI
 {
     public partial class Form1 : Form
     {
+        MyContext _db;
         public Form1()
         {
             InitializeComponent();
+            _db = DBTool.DBInstance;
         }
 
         private async void Form1_Load(object sender, EventArgs e)
@@ -96,8 +101,24 @@ namespace DukyanWinUI
 
         private void btnOrder_Click(object sender, EventArgs e)
         {
-            if (listStock.Count > 0)
+            //Flat null geçilebilir müstakil daireler için
+            if (listStock.Count > 0 && (!string.IsNullOrEmpty(txtFullName.Text) && (!string.IsNullOrEmpty(txtPhone.Text)) && (!string.IsNullOrEmpty(txtCountry.Text) && (!string.IsNullOrEmpty(txtCity.Text)) && (!string.IsNullOrEmpty(txtNeighborhood.Text)) && (!string.IsNullOrEmpty(txtStreet.Text)) && (!string.IsNullOrEmpty(txtAptNo.Text)) && (!string.IsNullOrEmpty(txtDistrcit.Text)))))
             {
+                //AptNo ve FlatNo prop'ları byte tipinde olduğu için try ile kontrolü sağlandı
+                byte aptNo;
+                byte flatNo;
+
+                try
+                {
+                    aptNo = Convert.ToByte(txtAptNo.Text);
+                    flatNo = Convert.ToByte(txtFlat.Text);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Lütfen AptNo ve KapıNo kısımlarını doğru giriniz");
+                    return;
+                }
+
                 using (HttpClient client = new HttpClient())
                 {
                     client.BaseAddress = new Uri("https://localhost:44339/api/");
@@ -119,12 +140,40 @@ namespace DukyanWinUI
                     {
                         listStock.Clear();//List içindeki ürünler temizlendi
                         lstBox.Items.Clear();//ListBox'taki gösterge temizlendi
+
+                        Order myOrder = new Order
+                        {
+                            FullName = txtFullName.Text,
+                            Phone = txtPhone.Text,
+                            Country = txtCountry.Text,
+                            City = txtCity.Text,
+                            District = txtDistrcit.Text,
+                            Neighborhood = txtNeighborhood.Text,
+                            Street = txtStreet.Text,
+                            AptNo = aptNo,
+                            Flat = flatNo
+                        };
+
+                        //for (int i = 0; i < listStock.Count; i++)
+                        //{
+                        //    myOrder.ProductID[i]=
+                        //}
+
+                        foreach (StockDropDTO item in listStock)
+                        {
+                            myOrder.ProductID = new string[] { item.ID.ToString() };
+                            myOrder.Amount = item.Quantity;
+                        }
+
+                        _db.Orders.Add(myOrder);
+                        _db.SaveChanges();
+
                         MessageBox.Show("Sipariş tamamlandı");
                     }
                     else MessageBox.Show("DepoAPI ile ilgili bir sorun oluştu");
                 }
             }
-            else MessageBox.Show("Lütfen sipariş edilecek ürünleri ekleyiniz");
+            else MessageBox.Show("Lütfen sipariş edilecek ürünleri ve teslimat bilgilerinin eksiksiz olduğundan emin olun");
 
 
         }
@@ -160,7 +209,8 @@ namespace DukyanWinUI
 
                 lstBox.Items.Add(listStock.LastOrDefault());
 
-                //lstBox.Items.Add($"{id} ID'li üründen {amount} adet.");
+                txtID.Clear();
+                txtAmount.Clear();
             }
             else MessageBox.Show("Lütfen gerekli alanları boş bırakmayınız");
         }
@@ -174,6 +224,51 @@ namespace DukyanWinUI
                 lstBox.Items.Remove(lstBox.SelectedItem);
             }
             else MessageBox.Show("Sipariş Listesinden silmek istediğiniz ürünü seçin");
+        }
+
+        private void txtFullName_Click(object sender, EventArgs e)
+        {
+            txtFullName.Clear();
+        }
+
+        private void txtPhone_Click(object sender, EventArgs e)
+        {
+            txtPhone.Clear();
+        }
+
+        private void txtCountry_Click(object sender, EventArgs e)
+        {
+            txtCountry.Clear();
+        }
+
+        private void txtCity_Click(object sender, EventArgs e)
+        {
+            txtCity.Clear();
+        }
+
+        private void txtDistrcit_Click(object sender, EventArgs e)
+        {
+            txtDistrcit.Clear();
+        }
+
+        private void txtNeighborhood_Click(object sender, EventArgs e)
+        {
+            txtNeighborhood.Clear();
+        }
+
+        private void txtStreet_Click(object sender, EventArgs e)
+        {
+            txtStreet.Clear();
+        }
+
+        private void txtAptNo_Click(object sender, EventArgs e)
+        {
+            txtAptNo.Clear();
+        }
+
+        private void txtFlat_Click(object sender, EventArgs e)
+        {
+            txtFlat.Clear();
         }
     }
 }
