@@ -138,8 +138,6 @@ namespace DukyanWinUI
 
                     if (result.IsSuccessStatusCode)
                     {
-                        listStock.Clear();//List içindeki ürünler temizlendi
-                        lstBox.Items.Clear();//ListBox'taki gösterge temizlendi
 
                         Order myOrder = new Order
                         {
@@ -154,19 +152,24 @@ namespace DukyanWinUI
                             Flat = flatNo
                         };
 
-                        //for (int i = 0; i < listStock.Count; i++)
-                        //{
-                        //    myOrder.ProductID[i]=
-                        //}
-
-                        //foreach (StockDropDTO item in listStock)
-                        //{
-                        //    myOrder.ProductID = new string[] { item.ID.ToString() };
-                        //    myOrder.Amount = item.Quantity;
-                        //}
-
                         _db.Orders.Add(myOrder);
+                        _db.SaveChanges(); //Order'ın ID'si oluşması için önceden SaveChanges yaptık
+
+                        Product myProduct;
+                        OrderDetail myOrderDetail;
+
+                        foreach (StockDropDTO item in listStock)
+                        {
+                            myProduct = new Product { ID = item.ID };
+                            myOrderDetail = new OrderDetail { OrderID = myOrder.ID, ProductID=myProduct.ID, Quantity=item.Quantity };
+                            _db.Products.Add(myProduct);
+                            _db.Details.Add(myOrderDetail);
+                        }
+
                         _db.SaveChanges();
+
+                        listStock.Clear();//List içindeki ürünler temizlendi
+                        lstBox.Items.Clear();//ListBox'taki gösterge temizlendi
 
                         MessageBox.Show("Sipariş tamamlandı");
                     }

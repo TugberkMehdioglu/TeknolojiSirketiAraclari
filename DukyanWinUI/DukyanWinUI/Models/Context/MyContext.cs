@@ -43,6 +43,9 @@ namespace DukyanWinUI.Models.Context
         }
 
         public DbSet<Order> Orders { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<OrderDetail> Details { get; set; }
+
 
     }
 }
