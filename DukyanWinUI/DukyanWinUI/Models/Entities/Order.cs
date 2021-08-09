@@ -20,10 +20,8 @@ namespace DukyanWinUI.Models.Entities
         public byte? Flat { get; set; }//Müstakil daireler için null geçilebilir yaptık
 
 
-        //Ürünlerin sadece ID ve Amount'u bulunduğu için ayrı bir class açmaya gerek yok
-        public string[] ProductID { get; set; }
-        public short Amount { get; set; }
-
+        //Relational Properties
+        public List<OrderDetail> Details { get; set; }
 
     }
 }

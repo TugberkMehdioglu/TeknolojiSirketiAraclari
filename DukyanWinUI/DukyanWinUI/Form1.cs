@@ -159,11 +159,11 @@ namespace DukyanWinUI
                         //    myOrder.ProductID[i]=
                         //}
 
-                        foreach (StockDropDTO item in listStock)
-                        {
-                            myOrder.ProductID = new string[] { item.ID.ToString() };
-                            myOrder.Amount = item.Quantity;
-                        }
+                        //foreach (StockDropDTO item in listStock)
+                        //{
+                        //    myOrder.ProductID = new string[] { item.ID.ToString() };
+                        //    myOrder.Amount = item.Quantity;
+                        //}
 
                         _db.Orders.Add(myOrder);
                         _db.SaveChanges();
