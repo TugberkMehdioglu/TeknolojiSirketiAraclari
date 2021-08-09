@@ -102,7 +102,7 @@ namespace DukyanWinUI
         private void btnOrder_Click(object sender, EventArgs e)
         {
             //Flat null geçilebilir müstakil daireler için
-            if (listStock.Count > 0 && (!string.IsNullOrEmpty(txtFullName.Text) && (!string.IsNullOrEmpty(txtPhone.Text)) && (!string.IsNullOrEmpty(txtCountry.Text) && (!string.IsNullOrEmpty(txtCity.Text)) && (!string.IsNullOrEmpty(txtNeighborhood.Text)) && (!string.IsNullOrEmpty(txtStreet.Text)) && (!string.IsNullOrEmpty(txtAptNo.Text)) && (!string.IsNullOrEmpty(txtDistrcit.Text)))))
+            if (listStock.Count > 0 && (!string.IsNullOrEmpty(txtFullName.Text) && (!string.IsNullOrEmpty(txtPhone.Text)) && (!string.IsNullOrEmpty(txtCountry.Text) && (!string.IsNullOrEmpty(txtCity.Text)) && (!string.IsNullOrEmpty(txtNeighborhood.Text)) && (!string.IsNullOrEmpty(txtStreet.Text)) && (!string.IsNullOrEmpty(txtAptNo.Text)) && (!string.IsNullOrEmpty(txtDistrcit.Text)) && !(txtFullName.Text == "İsim Soyisim") && !(txtPhone.Text == "TelNo") && !(txtCountry.Text == "Ülke") && !(txtCity.Text == "Şehir") && !(txtDistrcit.Text == "İlçe") && !(txtNeighborhood.Text == "Mahalle") && !(txtStreet.Text == "Sokak") && !(txtAptNo.Text == "AptNo") && !(txtFlat.Text == "KapıNo (Yok ise 0 giriniz)"))))
             {
                 //AptNo ve FlatNo prop'ları byte tipinde olduğu için try ile kontrolü sağlandı
                 byte aptNo;
@@ -112,6 +112,7 @@ namespace DukyanWinUI
                 {
                     aptNo = Convert.ToByte(txtAptNo.Text);
                     flatNo = Convert.ToByte(txtFlat.Text);
+
                 }
                 catch (Exception)
                 {
@@ -176,7 +177,7 @@ namespace DukyanWinUI
                     else MessageBox.Show("DepoAPI ile ilgili bir sorun oluştu");
                 }
             }
-            else MessageBox.Show("Lütfen sipariş edilecek ürünleri ve teslimat bilgilerinin eksiksiz olduğundan emin olun");
+            else MessageBox.Show("Lütfen sipariş edilecek ürünlerin ve teslimat bilgilerinin eksiksiz olduğundan emin olun");
 
 
         }

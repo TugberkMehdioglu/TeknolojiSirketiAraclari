@@ -96,7 +96,7 @@ namespace DukyanWinUI
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("PMingLiU-ExtB", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(989, 42);
+            this.label1.Location = new System.Drawing.Point(1009, 40);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(226, 18);
             this.label1.TabIndex = 2;
@@ -106,7 +106,7 @@ namespace DukyanWinUI
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("PMingLiU-ExtB", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(953, 42);
+            this.label2.Location = new System.Drawing.Point(973, 40);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 18);
             this.label2.TabIndex = 3;
@@ -114,7 +114,7 @@ namespace DukyanWinUI
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(927, 216);
+            this.txtID.Location = new System.Drawing.Point(927, 190);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(117, 20);
             this.txtID.TabIndex = 4;
@@ -123,7 +123,7 @@ namespace DukyanWinUI
             // 
             // txtAmount
             // 
-            this.txtAmount.Location = new System.Drawing.Point(927, 242);
+            this.txtAmount.Location = new System.Drawing.Point(927, 216);
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.Size = new System.Drawing.Size(117, 20);
             this.txtAmount.TabIndex = 5;
@@ -132,46 +132,49 @@ namespace DukyanWinUI
             // 
             // btnOrder
             // 
-            this.btnOrder.Location = new System.Drawing.Point(927, 615);
+            this.btnOrder.BackColor = System.Drawing.Color.LimeGreen;
+            this.btnOrder.Location = new System.Drawing.Point(927, 633);
             this.btnOrder.Name = "btnOrder";
             this.btnOrder.Size = new System.Drawing.Size(331, 42);
             this.btnOrder.TabIndex = 6;
             this.btnOrder.Text = "Siparişi Tamamla";
-            this.btnOrder.UseVisualStyleBackColor = true;
+            this.btnOrder.UseVisualStyleBackColor = false;
             this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(997, 78);
+            this.btnUpdate.BackColor = System.Drawing.Color.Gold;
+            this.btnUpdate.Location = new System.Drawing.Point(1048, 76);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(131, 64);
             this.btnUpdate.TabIndex = 7;
             this.btnUpdate.Text = "Listeyi Güncelle";
-            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // lstBox
             // 
             this.lstBox.FormattingEnabled = true;
-            this.lstBox.Location = new System.Drawing.Point(1048, 216);
+            this.lstBox.Location = new System.Drawing.Point(1048, 190);
             this.lstBox.Name = "lstBox";
-            this.lstBox.Size = new System.Drawing.Size(154, 121);
+            this.lstBox.Size = new System.Drawing.Size(154, 173);
             this.lstBox.TabIndex = 8;
             // 
             // btnAddOrder
             // 
-            this.btnAddOrder.Location = new System.Drawing.Point(927, 268);
+            this.btnAddOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnAddOrder.Location = new System.Drawing.Point(927, 242);
             this.btnAddOrder.Name = "btnAddOrder";
-            this.btnAddOrder.Size = new System.Drawing.Size(117, 69);
+            this.btnAddOrder.Size = new System.Drawing.Size(117, 117);
             this.btnAddOrder.TabIndex = 9;
             this.btnAddOrder.Text = "Siparişe ekle";
-            this.btnAddOrder.UseVisualStyleBackColor = true;
+            this.btnAddOrder.UseVisualStyleBackColor = false;
             this.btnAddOrder.Click += new System.EventHandler(this.btnAddOrder_Click);
             // 
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(1045, 190);
+            this.label3.Location = new System.Drawing.Point(1045, 164);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(157, 23);
             this.label3.TabIndex = 10;
@@ -180,17 +183,18 @@ namespace DukyanWinUI
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(1208, 216);
+            this.btnDelete.BackColor = System.Drawing.Color.Red;
+            this.btnDelete.Location = new System.Drawing.Point(1208, 190);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(50, 121);
+            this.btnDelete.Size = new System.Drawing.Size(50, 173);
             this.btnDelete.TabIndex = 11;
             this.btnDelete.Text = "Sipariş Sil";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // txtFullName
             // 
-            this.txtFullName.Location = new System.Drawing.Point(998, 373);
+            this.txtFullName.Location = new System.Drawing.Point(998, 391);
             this.txtFullName.Name = "txtFullName";
             this.txtFullName.Size = new System.Drawing.Size(204, 20);
             this.txtFullName.TabIndex = 12;
@@ -199,7 +203,7 @@ namespace DukyanWinUI
             // 
             // txtPhone
             // 
-            this.txtPhone.Location = new System.Drawing.Point(998, 399);
+            this.txtPhone.Location = new System.Drawing.Point(998, 417);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(204, 20);
             this.txtPhone.TabIndex = 12;
@@ -208,7 +212,7 @@ namespace DukyanWinUI
             // 
             // txtCountry
             // 
-            this.txtCountry.Location = new System.Drawing.Point(998, 425);
+            this.txtCountry.Location = new System.Drawing.Point(998, 443);
             this.txtCountry.Name = "txtCountry";
             this.txtCountry.Size = new System.Drawing.Size(204, 20);
             this.txtCountry.TabIndex = 12;
@@ -217,7 +221,7 @@ namespace DukyanWinUI
             // 
             // txtCity
             // 
-            this.txtCity.Location = new System.Drawing.Point(998, 451);
+            this.txtCity.Location = new System.Drawing.Point(998, 469);
             this.txtCity.Name = "txtCity";
             this.txtCity.Size = new System.Drawing.Size(204, 20);
             this.txtCity.TabIndex = 12;
@@ -226,7 +230,7 @@ namespace DukyanWinUI
             // 
             // txtNeighborhood
             // 
-            this.txtNeighborhood.Location = new System.Drawing.Point(998, 503);
+            this.txtNeighborhood.Location = new System.Drawing.Point(998, 521);
             this.txtNeighborhood.Name = "txtNeighborhood";
             this.txtNeighborhood.Size = new System.Drawing.Size(204, 20);
             this.txtNeighborhood.TabIndex = 12;
@@ -235,7 +239,7 @@ namespace DukyanWinUI
             // 
             // txtStreet
             // 
-            this.txtStreet.Location = new System.Drawing.Point(998, 529);
+            this.txtStreet.Location = new System.Drawing.Point(998, 547);
             this.txtStreet.Name = "txtStreet";
             this.txtStreet.Size = new System.Drawing.Size(204, 20);
             this.txtStreet.TabIndex = 12;
@@ -244,7 +248,7 @@ namespace DukyanWinUI
             // 
             // txtAptNo
             // 
-            this.txtAptNo.Location = new System.Drawing.Point(998, 555);
+            this.txtAptNo.Location = new System.Drawing.Point(998, 573);
             this.txtAptNo.Name = "txtAptNo";
             this.txtAptNo.Size = new System.Drawing.Size(204, 20);
             this.txtAptNo.TabIndex = 12;
@@ -253,16 +257,16 @@ namespace DukyanWinUI
             // 
             // txtFlat
             // 
-            this.txtFlat.Location = new System.Drawing.Point(998, 581);
+            this.txtFlat.Location = new System.Drawing.Point(998, 599);
             this.txtFlat.Name = "txtFlat";
             this.txtFlat.Size = new System.Drawing.Size(204, 20);
             this.txtFlat.TabIndex = 12;
-            this.txtFlat.Text = "KapıNo (Var ise)";
+            this.txtFlat.Text = "KapıNo (Yok ise 0 giriniz)";
             this.txtFlat.Click += new System.EventHandler(this.txtFlat_Click);
             // 
             // txtDistrcit
             // 
-            this.txtDistrcit.Location = new System.Drawing.Point(998, 477);
+            this.txtDistrcit.Location = new System.Drawing.Point(998, 495);
             this.txtDistrcit.Name = "txtDistrcit";
             this.txtDistrcit.Size = new System.Drawing.Size(204, 20);
             this.txtDistrcit.TabIndex = 12;
@@ -273,6 +277,7 @@ namespace DukyanWinUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(1275, 687);
             this.Controls.Add(this.txtFlat);
             this.Controls.Add(this.txtAptNo);
@@ -295,7 +300,7 @@ namespace DukyanWinUI
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lstView);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Tekno Center";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
