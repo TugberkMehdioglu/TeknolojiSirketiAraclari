@@ -10,6 +10,7 @@ namespace DukyanWinUI.Models.Entities
     public class Product
     {
         public int ID { get; set; }
+        public int PurchasedID { get; set; } //Ürünün DepoAPI'daki ID'si
 
         //Relational Properties
         public List<OrderDetail> Details { get; set; }

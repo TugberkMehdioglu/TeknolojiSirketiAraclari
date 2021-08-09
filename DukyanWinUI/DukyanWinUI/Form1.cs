@@ -116,7 +116,7 @@ namespace DukyanWinUI
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Lütfen AptNo ve KapıNo kısımlarını doğru giriniz");
+                    MessageBox.Show("Lütfen AptNo ve KapıNo kısımlarına sadece sayı giriniz");
                     return;
                 }
 
@@ -161,7 +161,7 @@ namespace DukyanWinUI
 
                         foreach (StockDropDTO item in listStock)
                         {
-                            myProduct = new Product { ID = item.ID };
+                            myProduct = new Product { PurchasedID = item.ID };
                             myOrderDetail = new OrderDetail { OrderID = myOrder.ID, ProductID=myProduct.ID, Quantity=item.Quantity };
                             _db.Products.Add(myProduct);
                             _db.Details.Add(myOrderDetail);
