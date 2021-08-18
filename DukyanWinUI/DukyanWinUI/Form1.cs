@@ -70,23 +70,6 @@ namespace DukyanWinUI
                     MessageBox.Show("DepoAPI ile ilgili bir sorun oluştu");
                 }
             }
-
-
-
-            //Diğer yolu bu, bu yolun tek sıkıntısı API kapalıysa yada çalışmıyorsa bu proje patlıyor.
-
-            //using (HttpClient client = new HttpClient())
-            //{
-            //    client.BaseAddress = new Uri("https://localhost:44339/api/");
-            //    HttpResponseMessage gettask = await client.GetAsync("home/getstock");
-            //    gettask.EnsureSuccessStatusCode();
-
-            //    string contentstring = await gettask.Content.ReadAsStringAsync();
-
-            //    StockDTO[] resultcontent = JsonConvert.DeserializeObject<StockDTO[]>(contentstring);
-
-            //    lstBox.Items.AddRange(resultcontent);
-            //}
         }
 
         private void txtID_Click(object sender, EventArgs e)
