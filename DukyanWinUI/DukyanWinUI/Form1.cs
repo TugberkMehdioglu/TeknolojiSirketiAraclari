@@ -145,8 +145,9 @@ namespace DukyanWinUI
                         foreach (StockDropDTO item in listStock)
                         {
                             myProduct = new Product { PurchasedID = item.ID };
-                            myOrderDetail = new OrderDetail { OrderID = myOrder.ID, ProductID=myProduct.ID, Quantity=item.Quantity };
                             _db.Products.Add(myProduct);
+                            _db.SaveChanges();
+                            myOrderDetail = new OrderDetail { OrderID = myOrder.ID, ProductID=myProduct.ID, Quantity=item.Quantity };
                             _db.Details.Add(myOrderDetail);
                         }
 
