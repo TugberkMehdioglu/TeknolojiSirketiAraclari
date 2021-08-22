@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DukyanWinUI.Models.Entities
+namespace DukkanWinUI.Models.Entities
 {
     //Ürünleri WinUi'da tutmak istemiyoruz, sadece DepoAPI'dan görüntülemesini yapıyoruz
     public class Product

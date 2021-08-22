@@ -1,11 +1,11 @@
-﻿using DukyanWinUI.Models.Context;
+﻿using DukkanWinUI.Models.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DukyanWinUI.DesignPatterns.SingletonPattern
+namespace DukkanWinUI.DesignPatterns.SingletonPattern
 {
     public class DBTool
     {

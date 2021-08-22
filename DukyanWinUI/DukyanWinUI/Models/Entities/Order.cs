@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DukyanWinUI.Models.Entities
+namespace DukkanWinUI.Models.Entities
 {
     public class Order
     {

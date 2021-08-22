@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DukyanWinUI", "DukyanWinUI\DukyanWinUI.csproj", "{AD22D581-E437-4C7D-AB24-775B08AE7CC2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DukkanWinUI", "DukyanWinUI\DukkanWinUI.csproj", "{AD22D581-E437-4C7D-AB24-775B08AE7CC2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

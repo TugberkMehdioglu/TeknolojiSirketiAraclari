@@ -1,4 +1,4 @@
-﻿using DukyanWinUI.Models.Entities;
+﻿using DukkanWinUI.Models.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DukyanWinUI.Models.Context
+namespace DukkanWinUI.Models.Context
 {
     public class MyContext : DbContext
     {

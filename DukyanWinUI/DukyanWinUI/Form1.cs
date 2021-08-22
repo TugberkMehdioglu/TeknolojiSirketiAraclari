@@ -1,7 +1,7 @@
-﻿using DukyanWinUI.DesignPatterns.SingletonPattern;
-using DukyanWinUI.DTOClasses;
-using DukyanWinUI.Models.Context;
-using DukyanWinUI.Models.Entities;
+﻿using DukkanWinUI.DTOClasses;
+using DukkanWinUI.DesignPatterns.SingletonPattern;
+using DukkanWinUI.Models.Context;
+using DukkanWinUI.Models.Entities;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
